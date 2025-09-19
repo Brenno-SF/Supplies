@@ -6,6 +6,8 @@ import com.bsf.Supplies.mapper.FuelMapper;
 import com.bsf.Supplies.repository.FuelRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FuelService {
     private final FuelRepository fuelRepository;
@@ -22,6 +24,12 @@ public class FuelService {
         Fuel fuelSaved = fuelRepository.save(fuel);
 
         return fuelMapper.toDTO(fuelSaved);
+    }
+    public List<FuelDTO> getAllFuels(){
+        List<Fuel> fuels = fuelRepository.findAll();
+        return fuels.stream()
+                .map(fuelMapper::toDTO)
+                .toList();
     }
 
 }
