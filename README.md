@@ -1,3 +1,6 @@
+
+**Nota:** Não estou participando deste processo, é apenas minha solução.
+
 # Desafio Técnico Júnior #1 - Cadastro e Consulta de Abastecimentos
 
 # Objetivo
@@ -44,3 +47,7 @@ Desenvolver uma aplicação simples em Java para cadastro e consulta de abasteci
 
 *   Divida o desafio em pequenas partes e implemente com calma, focando em cada funcionalidade por vez.
 *   Use commits claros e objetivos, indicando exatamente o que foi alterado ou implementado.
+*   Em caso de dúvida, comunique-se - mostrar que você sabe buscar soluções é um ponto positivo.
+*   Mesmo que não finalize 100% dos requisitos, a qualidade do seu processo será levada em conta.
+
+---
