@@ -61,4 +61,11 @@ public class PumpService {
         Pump pumpUpdated = pumpRepository.save(pump);
         return PumpMapper.toDto(pumpUpdated);
     }
+
+    public void deleteById(Long id){
+        Pump pump = pumpRepository.findById(id).orElseThrow(()->
+                new ResourseNotFoundException("pump not found"));
+
+        pumpRepository.deleteById(id);
+    }
 }

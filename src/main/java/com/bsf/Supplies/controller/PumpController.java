@@ -38,4 +38,9 @@ public class PumpController {
     public ResponseEntity<PumpDTO>updatePumpById(@PathVariable Long id, @RequestBody PumpDTO pumpDTO){
         return ResponseEntity.ok(pumpService.updateById(id,pumpDTO));
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePumpById(@PathVariable Long id){
+        pumpService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

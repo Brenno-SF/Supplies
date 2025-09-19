@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.image.ReplicateScaleFilter;
 import java.util.List;
 
 @RestController
@@ -41,4 +42,6 @@ public class FuelController {
         fuelService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+
 }
