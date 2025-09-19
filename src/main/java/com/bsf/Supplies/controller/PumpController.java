@@ -28,4 +28,9 @@ public class PumpController {
         List<PumpDTO> pumps = pumpService.getAll();
         return ResponseEntity.ok(pumps);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PumpDTO>getPumpById(@PathVariable Long id){
+        return ResponseEntity.ok(pumpService.getById(id));
+    }
 }

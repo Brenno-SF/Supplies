@@ -45,4 +45,11 @@ public class PumpService {
                 .map(PumpMapper::toDto)
                 .toList();
     }
+
+    public PumpDTO getById(Long id){
+        Pump pump = pumpRepository.findById(id).orElseThrow(()->
+                new ResourseNotFoundException("pump not found"));
+
+        return PumpMapper.toDto(pump);
+    }
 }
