@@ -52,5 +52,10 @@ public class FuelService {
         return fuelMapper.toDTO(fuelUpdated);
 
     }
+    public void delete(Long id){
+        Fuel fuel = fuelRepository.findById(id).orElseThrow(() ->
+                new ResourseNotFoundException("Fuel not found"));
+        fuelRepository.deleteById(id);
+    }
 
 }

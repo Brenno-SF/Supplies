@@ -36,4 +36,9 @@ public class FuelController {
     public ResponseEntity<FuelDTO>update(@PathVariable Long id, @RequestBody FuelDTO fuelDTO){
         return ResponseEntity.ok(fuelService.update(id, fuelDTO));
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void>delete(@PathVariable Long id){
+        fuelService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
