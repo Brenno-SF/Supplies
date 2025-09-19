@@ -52,4 +52,13 @@ public class PumpService {
 
         return PumpMapper.toDto(pump);
     }
+    public PumpDTO updateById(Long id, PumpDTO pumpDTO){
+        Pump pump = pumpRepository.findById(id).orElseThrow(()->
+                new ResourseNotFoundException("pump not found"));
+
+        pump.setName(pump.getName());
+
+        Pump pumpUpdated = pumpRepository.save(pump);
+        return PumpMapper.toDto(pumpUpdated);
+    }
 }

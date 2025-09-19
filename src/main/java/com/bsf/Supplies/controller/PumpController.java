@@ -4,6 +4,7 @@ import com.bsf.Supplies.dto.FuelDTO;
 import com.bsf.Supplies.dto.PumpDTO;
 import com.bsf.Supplies.entity.Pump;
 import com.bsf.Supplies.service.PumpService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class PumpController {
 
     @PostMapping()
     public ResponseEntity<PumpDTO> create(@RequestBody PumpDTO pumpDTO){
-        return ResponseEntity.ok(pumpService.create(pumpDTO));
+        return ResponseEntity.status(HttpStatus.CREATED).body(pumpService.create(pumpDTO));
     }
 
     @GetMapping()
@@ -32,5 +33,9 @@ public class PumpController {
     @GetMapping("/{id}")
     public ResponseEntity<PumpDTO>getPumpById(@PathVariable Long id){
         return ResponseEntity.ok(pumpService.getById(id));
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<PumpDTO>updatePumpById(@PathVariable Long id, @RequestBody PumpDTO pumpDTO){
+        return ResponseEntity.ok(pumpService.updateById(id,pumpDTO));
     }
 }
