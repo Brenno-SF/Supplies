@@ -20,6 +20,6 @@ public class Pump {
     private String name;
 
     @ManyToOne()
-    @JoinColumn(name = "fuel_id")
+    @JoinColumn(name = "fuel_id_fk")
     private Fuel fuel;
 }

@@ -12,31 +12,30 @@ import java.util.List;
 @Service
 public class FuelService {
     private final FuelRepository fuelRepository;
-    private final FuelMapper fuelMapper;
 
-    public FuelService(FuelRepository fuelRepository, FuelMapper fuelMapper) {
+    public FuelService(FuelRepository fuelRepository) {
         this.fuelRepository = fuelRepository;
-        this.fuelMapper = fuelMapper;
     }
+
 
     public FuelDTO create(FuelDTO fuelDTO) {
 
-        Fuel fuel = fuelMapper.toDomain(fuelDTO);
+        Fuel fuel = FuelMapper.toDomain(fuelDTO);
         Fuel fuelSaved = fuelRepository.save(fuel);
 
-        return fuelMapper.toDTO(fuelSaved);
+        return FuelMapper.toDTO(fuelSaved);
     }
     public List<FuelDTO> getAll(){
         List<Fuel> fuels = fuelRepository.findAll();
         return fuels.stream()
-                .map(fuelMapper::toDTO)
+                .map(FuelMapper::toDTO)
                 .toList();
     }
     public FuelDTO getById(Long id){
         Fuel fuel = fuelRepository.findById(id).orElseThrow(() ->
                 new ResourseNotFoundException("Fuel not found"));
 
-        return fuelMapper.toDTO(fuel);
+        return FuelMapper.toDTO(fuel);
 
     }
     public FuelDTO update(Long id, FuelDTO fuelDTO){
@@ -49,7 +48,7 @@ public class FuelService {
         Fuel fuelUpdated = fuelRepository.save(fuel);
 
 
-        return fuelMapper.toDTO(fuelUpdated);
+        return FuelMapper.toDTO(fuelUpdated);
 
     }
     public void delete(Long id){
