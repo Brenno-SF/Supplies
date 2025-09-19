@@ -19,13 +19,21 @@ public class FuelController {
 
     @PostMapping()
     public ResponseEntity<FuelDTO>createFuel(@RequestBody FuelDTO fuelDTO){
-        FuelDTO fuelCreated = fuelService.createFuel(fuelDTO);
+        FuelDTO fuelCreated = fuelService.create(fuelDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(fuelCreated);
     }
 
     @GetMapping()
     public ResponseEntity<List<FuelDTO>>getAllFuels(){
-        List<FuelDTO> fuels = fuelService.getAllFuels();
+        List<FuelDTO> fuels = fuelService.getAll();
         return ResponseEntity.ok(fuels);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<FuelDTO>getFuelById(@PathVariable Long id){
+        return ResponseEntity.ok(fuelService.getById(id));
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<FuelDTO>update(@PathVariable Long id, @RequestBody FuelDTO fuelDTO){
+        return ResponseEntity.ok(fuelService.update(id, fuelDTO));
     }
 }
