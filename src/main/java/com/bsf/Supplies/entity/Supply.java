@@ -24,8 +24,11 @@ public class Supply {
     private Long id;
 
     private String name;
-    private BigDecimal liter;
-    private BigDecimal total;
+
+    @Column(name = "liter")
+    private BigDecimal liters;
+    @Column(name = "total")
+    private BigDecimal totalPrice;
 
     @CreationTimestamp
     @Column(name = "date_supply")
