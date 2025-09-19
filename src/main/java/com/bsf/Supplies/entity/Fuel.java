@@ -24,7 +24,7 @@ public class Fuel {
     private String name;
     private BigDecimal price;
 
-    @OneToMany(mappedBy = "fuel")
-    private List<Pump> pumps;
+//    @OneToMany(mappedBy = "fuel")
+//    private List<Pump> pumps;
 
 }

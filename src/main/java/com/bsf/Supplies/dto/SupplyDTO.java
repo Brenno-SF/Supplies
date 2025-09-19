@@ -3,7 +3,7 @@ package com.bsf.Supplies.dto;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public record Supply(
+public record SupplyDTO(
         Long id,
         LocalDateTime date,
         PumpDTO pump,
