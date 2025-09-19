@@ -1,0 +1,1 @@
+ALTER TABLE tb_supply DROP COLUMN price;

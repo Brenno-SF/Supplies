@@ -33,4 +33,8 @@ public class Supply {
     @CreationTimestamp
     @Column(name = "date_supply")
     private LocalDateTime date;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pump_id_fk")
+    private Pump pump;
 }

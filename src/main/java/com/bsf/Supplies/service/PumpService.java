@@ -1,11 +1,9 @@
 package com.bsf.Supplies.service;
 
-import com.bsf.Supplies.dto.FuelDTO;
 import com.bsf.Supplies.dto.PumpDTO;
 import com.bsf.Supplies.entity.Fuel;
 import com.bsf.Supplies.entity.Pump;
 import com.bsf.Supplies.exception.ResourseNotFoundException;
-import com.bsf.Supplies.mapper.FuelMapper;
 import com.bsf.Supplies.mapper.PumpMapper;
 import com.bsf.Supplies.repository.FuelRepository;
 import com.bsf.Supplies.repository.PumpRepository;
@@ -36,13 +34,13 @@ public class PumpService {
 
         Pump pumpSaved = pumpRepository.save(pump);
 
-        return PumpMapper.toDto(pumpSaved);
+        return PumpMapper.toDTO(pumpSaved);
     }
 
     public List<PumpDTO> getAll(){
         List<Pump> pumps = pumpRepository.findAll();
         return pumps.stream()
-                .map(PumpMapper::toDto)
+                .map(PumpMapper::toDTO)
                 .toList();
     }
 
@@ -50,7 +48,7 @@ public class PumpService {
         Pump pump = pumpRepository.findById(id).orElseThrow(()->
                 new ResourseNotFoundException("pump not found"));
 
-        return PumpMapper.toDto(pump);
+        return PumpMapper.toDTO(pump);
     }
     public PumpDTO updateById(Long id, PumpDTO pumpDTO){
         Pump pump = pumpRepository.findById(id).orElseThrow(()->
@@ -59,7 +57,7 @@ public class PumpService {
         pump.setName(pump.getName());
 
         Pump pumpUpdated = pumpRepository.save(pump);
-        return PumpMapper.toDto(pumpUpdated);
+        return PumpMapper.toDTO(pumpUpdated);
     }
 
     public void deleteById(Long id){
